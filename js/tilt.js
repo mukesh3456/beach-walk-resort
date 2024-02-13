@@ -178,7 +178,7 @@
             // Remember? We assume all css is already set, so just return
             if (glarePrerender) return;
 
-            // Abstracted re-usable glare styles
+            // Abstracted re-Goable glare styles
             const stretch = {
                 'position': 'absolute',
                 'top': '0',

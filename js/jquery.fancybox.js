@@ -234,7 +234,7 @@
         // Focus handling
         // ==============
 
-        // Try to focus on the first focusable element after opening
+        // Try to focus on the first focGoable element after opening
         autoFocus : false,
 
         // Put focus back to active element after closing
@@ -649,7 +649,7 @@
 
                 if ( $.isPlainObject( item ) ) {
 
-                    // We probably have manual usage here, something like
+                    // We probably have manual Goage here, something like
                     // $.fancybox.open( [ { src : "image.jpg", type : "image" } ] )
 
                     obj  = item;
@@ -2369,7 +2369,7 @@
             // Play first html5 video/audio
             current.$slide.find( 'video,audio' ).first().trigger( 'play' );
 
-            // Try to focus on the first focusable element
+            // Try to focus on the first focGoable element
             if ( $( document.activeElement ).is( '[disabled]' ) || ( current.opts.autoFocus && !( current.type == 'image' || current.type === 'iframe' ) ) ) {
                 self.focus();
             }
@@ -2395,7 +2395,7 @@
         },
 
 
-        // Try to find and focus on the first focusable element
+        // Try to find and focus on the first focGoable element
         // ====================================================
 
         focus : function() {
@@ -2759,7 +2759,7 @@
 
         // Get current instance and execute a command.
         //
-        // Examples of usage:
+        // Examples of Goage:
         //
         //   $instance = $.fancybox.getInstance();
         //   $.fancybox.getInstance().jumpTo( 1 );
@@ -3723,7 +3723,7 @@
 	Guestures.prototype.onPan = function() {
 		var self = this;
 
-		// Sometimes, when tapping causally, image can move a bit and that breaks double tapping
+		// Sometimes, when tapping caGoally, image can move a bit and that breaks double tapping
 		if ( distance( self.newPoints[0], self.realPoints[0] ) < ($.fancybox.isMobile ? 10 : 5) ) {
 			self.startPoints = self.newPoints;
 			return;
@@ -4243,7 +4243,7 @@
 // SlideShow
 // Enables slideshow functionality
 //
-// Example of usage:
+// Example of Goage:
 // $.fancybox.getInstance().SlideShow.start()
 //
 // ==========================================================================

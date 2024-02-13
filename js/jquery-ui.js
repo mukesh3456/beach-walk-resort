@@ -1,6 +1,6 @@
 /*! jQuery UI - v1.12.1 - 2016-09-14
 * http://jqueryui.com
-* Includes: widget.js, position.js, data.js, disable-selection.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js, focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/draggable.js, widgets/droppable.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/resizable.js, widgets/selectable.js, widgets/selectmenu.js, widgets/slider.js, widgets/sortable.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js
+* Includes: widget.js, position.js, data.js, disable-selection.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js, focGoable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/draggable.js, widgets/droppable.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/resizable.js, widgets/selectable.js, widgets/selectmenu.js, widgets/slider.js, widgets/sortable.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
 
 (function( factory ) {
@@ -311,7 +311,7 @@ $.Widget.prototype = {
 
 		this.bindings = $();
 		this.hoverable = $();
-		this.focusable = $();
+		this.focGoable = $();
 		this.classesElementLookup = {};
 
 		if ( element !== this ) {
@@ -488,7 +488,7 @@ $.Widget.prototype = {
 		// If the widget is becoming disabled, then nothing is interactive
 		if ( value ) {
 			this._removeClass( this.hoverable, null, "ui-state-hover" );
-			this._removeClass( this.focusable, null, "ui-state-focus" );
+			this._removeClass( this.focGoable, null, "ui-state-focus" );
 		}
 	},
 
@@ -631,7 +631,7 @@ $.Widget.prototype = {
 
 		// Clear the stack to avoid memory leaks (#10056)
 		this.bindings = $( this.bindings.not( element ).get() );
-		this.focusable = $( this.focusable.not( element ).get() );
+		this.focGoable = $( this.focGoable.not( element ).get() );
 		this.hoverable = $( this.hoverable.not( element ).get() );
 	},
 
@@ -656,8 +656,8 @@ $.Widget.prototype = {
 		} );
 	},
 
-	_focusable: function( element ) {
-		this.focusable = this.focusable.add( element );
+	_focGoable: function( element ) {
+		this.focGoable = this.focGoable.add( element );
 		this._on( element, {
 			focusin: function( event ) {
 				this._addClass( $( event.currentTarget ), null, "ui-state-focus" );
@@ -1974,7 +1974,7 @@ jQuery.cssHooks.borderColor = {
 };
 
 // Basic color names only.
-// Usage of any of the other color names requires adding yourself or including
+// Goage of any of the other color names requires adding yourself or including
 // jquery.color.svg-names.js.
 colors = jQuery.Color.names = {
 
@@ -3872,7 +3872,7 @@ var effectsEffectTransfer = effect;
 
 
 /*!
- * jQuery UI Focusable 1.12.1
+ * jQuery UI FocGoable 1.12.1
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -3880,16 +3880,16 @@ var effectsEffectTransfer = effect;
  * http://jquery.org/license
  */
 
-//>>label: :focusable Selector
+//>>label: :focGoable Selector
 //>>group: Core
 //>>description: Selects elements which can be focused.
-//>>docs: http://api.jqueryui.com/focusable-selector/
+//>>docs: http://api.jqueryui.com/focGoable-selector/
 
 
 
 // Selectors
-$.ui.focusable = function( element, hasTabindex ) {
-	var map, mapName, img, focusableIfVisible, fieldset,
+$.ui.focGoable = function( element, hasTabindex ) {
+	var map, mapName, img, focGoableIfVisible, fieldset,
 		nodeName = element.nodeName.toLowerCase();
 
 	if ( "area" === nodeName ) {
@@ -3903,9 +3903,9 @@ $.ui.focusable = function( element, hasTabindex ) {
 	}
 
 	if ( /^(input|select|textarea|button|object)$/.test( nodeName ) ) {
-		focusableIfVisible = !element.disabled;
+		focGoableIfVisible = !element.disabled;
 
-		if ( focusableIfVisible ) {
+		if ( focGoableIfVisible ) {
 
 			// Form controls within a disabled fieldset are disabled.
 			// However, controls within the fieldset's legend do not get disabled.
@@ -3913,16 +3913,16 @@ $.ui.focusable = function( element, hasTabindex ) {
 			// this portion of the check.
 			fieldset = $( element ).closest( "fieldset" )[ 0 ];
 			if ( fieldset ) {
-				focusableIfVisible = !fieldset.disabled;
+				focGoableIfVisible = !fieldset.disabled;
 			}
 		}
 	} else if ( "a" === nodeName ) {
-		focusableIfVisible = element.href || hasTabindex;
+		focGoableIfVisible = element.href || hasTabindex;
 	} else {
-		focusableIfVisible = hasTabindex;
+		focGoableIfVisible = hasTabindex;
 	}
 
-	return focusableIfVisible && $( element ).is( ":visible" ) && visible( $( element ) );
+	return focGoableIfVisible && $( element ).is( ":visible" ) && visible( $( element ) );
 };
 
 // Support: IE 8 only
@@ -3937,12 +3937,12 @@ function visible( element ) {
 }
 
 $.extend( $.expr[ ":" ], {
-	focusable: function( element ) {
-		return $.ui.focusable( element, $.attr( element, "tabindex" ) != null );
+	focGoable: function( element ) {
+		return $.ui.focGoable( element, $.attr( element, "tabindex" ) != null );
 	}
 } );
 
-var focusable = $.ui.focusable;
+var focGoable = $.ui.focGoable;
 
 
 
@@ -4250,7 +4250,7 @@ var tabbable = $.extend( $.expr[ ":" ], {
 	tabbable: function( element ) {
 		var tabIndex = $.attr( element, "tabindex" ),
 			hasTabindex = tabIndex != null;
-		return ( !hasTabindex || tabIndex >= 0 ) && $.ui.focusable( element, hasTabindex );
+		return ( !hasTabindex || tabIndex >= 0 ) && $.ui.focGoable( element, hasTabindex );
 	}
 } );
 
@@ -4705,7 +4705,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 		this._on( this.headers, events );
 		this._on( this.headers.next(), { keydown: "_panelKeyDown" } );
 		this._hoverable( this.headers );
-		this._focusable( this.headers );
+		this._focGoable( this.headers );
 	},
 
 	_eventHandler: function( event ) {
@@ -12142,7 +12142,7 @@ $.widget( "ui.dialog", {
 		this._destroyOverlay();
 		this._untrackInstance();
 
-		if ( !this.opener.filter( ":focusable" ).trigger( "focus" ).length ) {
+		if ( !this.opener.filter( ":focGoable" ).trigger( "focus" ).length ) {
 
 			// Hiding a focused element doesn't trigger blur in WebKit
 			// so in case we have nothing to focus on, explicitly blur the active element
@@ -12269,7 +12269,7 @@ $.widget( "ui.dialog", {
 			.hide()
 			.attr( {
 
-				// Setting tabIndex makes the div focusable
+				// Setting tabIndex makes the div focGoable
 				tabIndex: -1,
 				role: "dialog"
 			} )
@@ -14617,7 +14617,7 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 		this._off( this.handles );
 		this._on( this.handles, this._handleEvents );
 		this._hoverable( this.handles );
-		this._focusable( this.handles );
+		this._focGoable( this.handles );
 	},
 
 	_destroy: function() {
@@ -17691,7 +17691,7 @@ $.widget( "ui.tabs", {
 			// Preventing the default action in mousedown doesn't prevent IE
 			// from focusing the element, so if the anchor gets focused, blur.
 			// We don't have to worry about focusing the previously focused
-			// element since clicking on a non-focusable element should focus
+			// element since clicking on a non-focGoable element should focus
 			// the body anyway.
 			.on( "focus" + this.eventNamespace, ".ui-tabs-anchor", function() {
 				if ( $( this ).closest( "li" ).is( ".ui-state-disabled" ) ) {
@@ -17768,7 +17768,7 @@ $.widget( "ui.tabs", {
 		}
 	},
 
-	// Allow overriding how to find the list for rare usage scenarios (#7715)
+	// Allow overriding how to find the list for rare Goage scenarios (#7715)
 	_getList: function() {
 		return this.tablist || this.element.find( "ol, ul" ).eq( 0 );
 	},
@@ -17828,7 +17828,7 @@ $.widget( "ui.tabs", {
 		this._on( this.tabs, { keydown: "_tabKeydown" } );
 		this._on( this.panels, { keydown: "_panelKeydown" } );
 
-		this._focusable( this.tabs );
+		this._focGoable( this.tabs );
 		this._hoverable( this.tabs );
 	},
 
