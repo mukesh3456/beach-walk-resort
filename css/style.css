@@ -3978,7 +3978,7 @@ img.lazy-image.loaded{
 
 .main-footer{
 	position:relative;
-	background: #181b1f;
+	background: #1d917bfc;
 	color: #9a9fa6;
 }
 
@@ -4000,7 +4000,7 @@ img.lazy-image.loaded{
 .main-footer .widget-title h4{
 	position: relative;
 	line-height: 1.3em;
-	color: #ffffff;
+	color: #080808;
 	text-transform: capitalize;
 	margin: 0 0;
 }
@@ -4098,7 +4098,7 @@ img.lazy-image.loaded{
 .main-footer .links-widget .links li a{
 	position:relative;
 	display: block;
-	color:#999ea5;
+	color:black;
 	font-size:16px;
 	text-transform: capitalize;
 	transition:all 0.4s ease;
@@ -4121,14 +4121,14 @@ img.lazy-image.loaded{
 .main-footer .info .phone{
 	position:relative;
 	line-height: 1.6em;
-	color: #9a9fa6;
+	color: #050505;
 	margin-bottom:15px;
 }
 
 .main-footer .info .address a,
 .main-footer .info .email a,
 .main-footer .info .phone a{
-	color: #9a9fa6;
+	color: #0f0f0f;
 	transition:all 0.4s ease;
 	-moz-transition:all 0.4s ease;
 	-webkit-transition:all 0.4s ease;
@@ -4144,7 +4144,7 @@ img.lazy-image.loaded{
 .main-footer .info .social-links{
 	position:relative;
 	line-height: 1.6em;
-	color: #9a9fa6;
+	color: #080808;
 }
 
 .main-footer .info .social-links a{
@@ -4152,7 +4152,7 @@ img.lazy-image.loaded{
 	display: inline-block;
 	vertical-align: top;
 	margin-right: 16px;
-	color: #9a9fa6;
+	color: #000000;
 	transition:all 0.4s ease;
 	-moz-transition:all 0.4s ease;
 	-webkit-transition:all 0.4s ease;
@@ -4176,6 +4176,7 @@ img.lazy-image.loaded{
 .main-footer .footer-bottom{
 	position:relative;
 	line-height: 24px;
+	background-color: #3268568a;
 }
 
 .main-footer .footer-bottom .inner{
